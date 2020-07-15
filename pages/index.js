@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from "next/head";
+import Nav from "../components/nav";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Nav></Nav>
 
       <main>
         <h1 className="title">
@@ -54,7 +56,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
         </a>
       </footer>
@@ -205,5 +207,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
