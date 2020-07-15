@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Query from "../components/query";
+import Query from "./Query";
 import CATEGORIES_QUERY from "../apollo/queries/category/categories";
 
 const Nav = () => {
