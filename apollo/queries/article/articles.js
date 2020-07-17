@@ -5,12 +5,11 @@ const ARTICLES_QUERY = gql`
     articles {
       id
       title
+      slug
+      summary
       category {
         id
         name
-      }
-      image {
-        url
       }
     }
   }

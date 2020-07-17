@@ -6,9 +6,6 @@ const ARTICLE_QUERY = gql`
       id
       title
       content
-      image {
-        url
-      }
       category {
         id
         name
