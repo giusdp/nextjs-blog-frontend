@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { useQuery } from "@apollo/react-hooks";
 import Title from "../components/Title";
 import Content from "../components/Content";
+import ContentBody from "../components/ContentBody";
 
 const HomePage = () => {
   const { loading, error, data } = useQuery(ARTICLES_QUERY);
@@ -15,20 +16,21 @@ const HomePage = () => {
   return (
     <Content>
       <Title title="Geedp's Blog" />
-      <p className="py-6">
-        👋 Welcome fellow{" "}
-        <a
-          className="text-teal-500 no-underline hover:underline"
-          href="https://www.tailwindcss.com"
-        >
-          Tailwind CSS
-        </a>{" "}
-        and miminal monochrome blog fan. This starter template provides a
-        starting point to create your own minimal monochrome blog using Tailwind
-        CSS and vanilla Javascript.
-      </p>
-      <Articles articles={data.articles} />
-      <hr className="border-b-2 border-gray-400 mt-6 mb-8 mx-4" />
+      <ContentBody>
+        <p className="pb-6">
+          👋 Welcome fellow{" "}
+          <a
+            className="text-teal-500 no-underline hover:underline"
+            href="https://www.tailwindcss.com"
+          >
+            Tailwind CSS
+          </a>{" "}
+          and miminal monochrome blog fan. This starter template provides a
+          starting point to create your own minimal monochrome blog using
+          Tailwind CSS and vanilla Javascript.
+        </p>
+        <Articles articles={data.articles} />
+      </ContentBody>
     </Content>
   );
 };
