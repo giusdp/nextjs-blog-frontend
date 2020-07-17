@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Card({ article }) {
   return (
-    <div className="rounded overflow-hidden shadow-lg">
+    <div className="rounded overflow-hidden shadow-lg border border-teal-200">
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">
           <Link href={article.slug}>

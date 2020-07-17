@@ -2,9 +2,10 @@ import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 import ARTICLE_QUERY from "../apollo/queries/article/article";
-import { useQuery, useLazyQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/react-hooks";
 import Content from "../components/Content";
 import Title from "../components/Title";
+import ContentBody from "../components/ContentBody";
 
 const Article = ({ slug }) => {
   const { loading, error, data } = useQuery(ARTICLE_QUERY, {
@@ -17,6 +18,9 @@ const Article = ({ slug }) => {
   return (
     <Content>
       <Title title={article.title} />
+      <ContentBody>
+        <ReactMarkdown source={article.content} />
+      </ContentBody>
     </Content>
   );
 };
