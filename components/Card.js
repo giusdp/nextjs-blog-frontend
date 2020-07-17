@@ -17,7 +17,7 @@ export default function Card({ article }) {
           #{article.category.name}
         </span>
         <div className="flex-1" />
-        <Link href={article.slug}>
+        <Link href={{ pathname: article.slug }}>
           <button className="inline-block bg-transparent hover:bg-teal-500 text-teal-500 rounded-full font-semibold hover:text-white px-4 border border-teal-500 hover:border-transparent">
             READ
           </button>
