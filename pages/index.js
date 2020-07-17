@@ -1,17 +1,20 @@
 import React from "react";
 import Articles from "../components/Articles";
-import Query from "../components/Query";
 import ARTICLES_QUERY from "../apollo/queries/article/articles";
 import Footer from "../components/Footer";
+import { useQuery } from "@apollo/react-hooks";
+import Title from "../components/Title";
+import Content from "../components/Content";
 
 const HomePage = () => {
+  const { loading, error, data } = useQuery(ARTICLES_QUERY);
+
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
+
   return (
-    <div className="container w-full md:max-w-3xl mx-auto pt-20">
-      <div className="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
-        <h1 className=" font-bold break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">
-          Geedp's Blog
-        </h1>
-      </div>
+    <Content>
+      <Title title="Geedp's Blog" />
       <p className="py-6">
         👋 Welcome fellow{" "}
         <a
@@ -24,17 +27,10 @@ const HomePage = () => {
         starting point to create your own minimal monochrome blog using Tailwind
         CSS and vanilla Javascript.
       </p>
-
-      <Query query={ARTICLES_QUERY}>
-        {({ data: { articles } }) => {
-          return <Articles articles={articles} />;
-        }}
-      </Query>
-
+      <Articles articles={data.articles} />;
       <hr className="border-b-2 border-gray-400 mt-6 mb-8 mx-4" />
-
       <Footer />
-    </div>
+    </Content>
   );
 };
 

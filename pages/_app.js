@@ -8,7 +8,7 @@ const App = ({ Component, pageProps, apollo }) => {
   return (
     <ApolloProvider client={apollo}>
       <Head>
-        <title>GeeDP's blog</title>
+        <title>Geedp's blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link
           href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
