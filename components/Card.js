@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function Card({ article }) {
   return (
-    <div className="rounded overflow-hidden shadow-lg border border-teal-200">
+    <div className="rounded overflow-hidden shadow-lg border border-teal-200 my-6">
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">
-          <Link href={article.slug}>
+          <Link href="/[slug]" as={`${article.slug}`}>
             <a> {article.title} </a>
           </Link>
         </div>
@@ -14,7 +14,7 @@ export default function Card({ article }) {
       </div>
       <div className="flex px-6 py-4">
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-          #{article.category.name}
+          #{article.category ? article.category.name : "NoCategory"}
         </span>
         <div className="flex-1" />
         <Link href="/[slug]" as={`${article.slug}`}>
