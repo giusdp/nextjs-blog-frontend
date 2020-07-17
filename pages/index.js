@@ -27,9 +27,8 @@ const HomePage = () => {
         starting point to create your own minimal monochrome blog using Tailwind
         CSS and vanilla Javascript.
       </p>
-      <Articles articles={data.articles} />;
+      <Articles articles={data.articles} />
       <hr className="border-b-2 border-gray-400 mt-6 mb-8 mx-4" />
-      <Footer />
     </Content>
   );
 };

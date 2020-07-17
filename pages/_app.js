@@ -3,6 +3,7 @@ import Head from "next/head";
 import { ApolloProvider } from "@apollo/react-hooks";
 import withData from "../apollo/apollo";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const App = ({ Component, pageProps, apollo }) => {
   return (
@@ -17,6 +18,7 @@ const App = ({ Component, pageProps, apollo }) => {
       </Head>
       <Nav />
       <Component {...pageProps} />
+      <Footer />
     </ApolloProvider>
   );
 };
