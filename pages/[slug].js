@@ -1,6 +1,4 @@
-import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
-import Moment from "react-moment";
 import ARTICLE_QUERY from "../apollo/queries/article/article";
 import { useQuery } from "@apollo/react-hooks";
 import Content from "../components/Content";
