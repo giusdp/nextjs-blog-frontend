@@ -9,41 +9,51 @@ const Footer = () => {
           <div className="w-full mx-auto flex flex-wrap">
             <div className="flex w-full md:w-1/2 ">
               <div className="px-8">
-                <h3 className="font-bold text-gray-900">About</h3>
+                <h3 className="font-bold text-gray-900">whoami</h3>
                 <p className="py-4 text-gray-600 text-sm">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Maecenas vel mi ut felis tempus commodo nec id erat.
-                  Suspendisse consectetur dapibus velit ut lacinia.
+                  Italian guy who just finished a Master in Computer Science. My
+                  main interests are in cloud computing, game and web dev. But
+                  let's say software in general.
                 </p>
               </div>
             </div>
 
             <div className="flex w-full md:w-1/2">
               <div className="px-8">
-                <h3 className="font-bold text-gray-900">Social</h3>
+                <h3 className="font-bold text-gray-900">
+                  You can find me here
+                </h3>
                 <ul className="list-reset items-center text-sm pt-3">
                   <li>
                     <a
                       className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1"
-                      href="#"
+                      href="mailto:depalma.gsp@gmail.com"
                     >
-                      Add social link
+                      Send an email
                     </a>
                   </li>
                   <li>
                     <a
                       className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1"
-                      href="#"
+                      href="https://github.com/giusdp"
                     >
-                      Add social link
+                      Github
                     </a>
                   </li>
                   <li>
                     <a
                       className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1"
-                      href="#"
+                      href="https://twitter.com/giusdp"
                     >
-                      Add social link
+                      Twitter
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1"
+                      href="https://www.linkedin.com/in/giuseppe-de-palma-a98610158/"
+                    >
+                      LinkedIn
                     </a>
                   </li>
                 </ul>
