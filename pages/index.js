@@ -24,9 +24,9 @@ const HomePage = () => {
           blog was made with{" "}
           <a
             className="text-teal-500 no-underline hover:underline"
-            href="https://reactjs.org/"
+            href="https://nextjs.org/"
           >
-            Reactjs
+            Nextjs
           </a>{" "}
           +{" "}
           <a
