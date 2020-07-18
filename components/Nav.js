@@ -21,7 +21,7 @@ const Nav = () => {
     <div>
       <nav
         id="header"
-        className="fixed w-full z-10 top-0 shadow-lg bg-gray-100 bg-opacity-75"
+        className="lora fixed w-full z-10 top-0 shadow-lg bg-gray-100 bg-opacity-75"
       >
         <div className="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
           <div className="pl-4">
@@ -30,7 +30,7 @@ const Nav = () => {
                 pathname: "/",
               }}
             >
-              <a className="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl">
+              <a className="font-bold text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl">
                 Home
               </a>
             </Link>

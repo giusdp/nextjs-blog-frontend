@@ -4,6 +4,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import withData from "../apollo/apollo";
 import Nav from "../components/Nav";
 import "../styles/progress-bar.css";
+import "../styles/fonts.css";
 import Footer from "../components/Footer";
 
 const App = ({ Component, pageProps, apollo }) => {
