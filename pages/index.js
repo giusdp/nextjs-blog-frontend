@@ -18,16 +18,30 @@ const HomePage = () => {
       <Title title="Geedp's Blog" />
       <ContentBody>
         <p className="pb-6">
-          👋 Welcome fellow{" "}
+          👋 Welcome to my blog! Here you can find posts about computer science,
+          tech and software development in general. If you're interested, this
+          blog was made with{" "}
+          <a
+            className="text-teal-500 no-underline hover:underline"
+            href="https://reactjs.org/"
+          >
+            Reactjs
+          </a>{" "}
+          +{" "}
           <a
             className="text-teal-500 no-underline hover:underline"
             href="https://www.tailwindcss.com"
           >
             Tailwind CSS
           </a>{" "}
-          and miminal monochrome blog fan. This starter template provides a
-          starting point to create your own minimal monochrome blog using
-          Tailwind CSS and vanilla Javascript.
+          and{" "}
+          <a
+            className="text-teal-500 no-underline hover:underline"
+            href="https://strapi.io/"
+          >
+            Strapi
+          </a>{" "}
+          . You can find more information about me in the footer.
         </p>
         <Articles articles={data.articles} />
       </ContentBody>
