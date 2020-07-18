@@ -12,12 +12,11 @@ const Article = ({ slug }) => {
   });
 
   if (loading) return <ProgressBar />;
-  if (error) return `Error! ${error.message}`;
-  const article = data.articles[0];
 
+  const article = data && data.articles[0];
   return (
     <Content>
-      {article ? (
+      {!error && article ? (
         <>
           <Title title={article.title} />
           <ContentBody>

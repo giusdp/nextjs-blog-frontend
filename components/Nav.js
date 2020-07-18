@@ -16,7 +16,6 @@ const Nav = () => {
   const { loading, error, data } = useQuery(CATEGORIES_QUERY);
 
   if (loading) return <ProgressBar />;
-  if (error) return `Error! ${error.message}`;
 
   return (
     <div>
@@ -55,23 +54,25 @@ const Nav = () => {
 
           <div className={toggleMenu(isMenuOpen)} id="nav-content">
             <ul className="list-reset md:flex justify-end flex-1 items-center">
-              {data.categories.map((category, i) => {
-                return (
-                  <li key={category.id} className="mr-3">
-                    <Link
-                      href="/category/[name]"
-                      as={`/category/${category.name}`}
-                    >
-                      <a
-                        className="inline-block py-2 px-4 text-gray-900 font-bold no-underline"
-                        // className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4"
+              {!error &&
+                data &&
+                data.categories.map((category, i) => {
+                  return (
+                    <li key={category.id} className="mr-3">
+                      <Link
+                        href="/category/[name]"
+                        as={`/category/${category.name}`}
                       >
-                        {category.name}
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
+                        <a
+                          className="inline-block py-2 px-4 text-gray-900 font-bold no-underline"
+                          // className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4"
+                        >
+                          {category.name}
+                        </a>
+                      </Link>
+                    </li>
+                  );
+                })}
             </ul>
           </div>
         </div>

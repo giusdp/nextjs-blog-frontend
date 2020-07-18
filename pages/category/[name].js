@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import Articles from "../../components/Articles";
 import CATEGORY_ARTICLES_QUERY from "../../apollo/queries/category/articles";
 import Title from "../../components/Title";
@@ -13,15 +12,22 @@ const Category = ({ name }) => {
   });
 
   if (loading) return <ProgressBar />;
-  if (error) return `Error! ${error.message}`;
 
-  const category = data.categories[0];
+  const category = data && data.categories[0];
   return (
     <Content>
-      <Title title={category.name} />
-      <ContentBody>
-        <Articles articles={category.articles} />
-      </ContentBody>
+      {!error && category ? (
+        <>
+          <Title title={category.title} />
+          <ContentBody>
+            <Articles articles={category.articles} />
+          </ContentBody>
+        </>
+      ) : (
+        <ContentBody>
+          <> 😭 There was an error retrieving the categories! 😭</>
+        </ContentBody>
+      )}
     </Content>
   );
 };

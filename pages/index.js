@@ -12,7 +12,6 @@ const HomePage = () => {
   const { loading, error, data } = useQuery(ARTICLES_QUERY);
 
   if (loading) return <ProgressBar />;
-  if (error) return `Error! ${error.message}`;
 
   return (
     <Content>
@@ -44,7 +43,11 @@ const HomePage = () => {
           </a>{" "}
           .
         </header>
-        <Articles articles={data.articles} />
+        {error ? (
+          <> 😭 There was an error retrieving the posts! 😭</>
+        ) : (
+          <Articles articles={data.articles} />
+        )}
       </ContentBody>
     </Content>
   );
