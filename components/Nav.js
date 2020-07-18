@@ -59,10 +59,8 @@ const Nav = () => {
                 return (
                   <li key={category.id} className="mr-3">
                     <Link
-                      href={{
-                        pathname: "category",
-                        query: { id: category.id },
-                      }}
+                      href="/category/[name]"
+                      as={`/category/${category.name}`}
                     >
                       <a
                         className="inline-block py-2 px-4 text-gray-900 font-bold no-underline"
