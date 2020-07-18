@@ -6,18 +6,19 @@ import { useQuery } from "@apollo/react-hooks";
 import Title from "../components/Title";
 import Content from "../components/Content";
 import ContentBody from "../components/ContentBody";
+import ProgressBar from "../components/progressbar/ProgressBar";
 
 const HomePage = () => {
   const { loading, error, data } = useQuery(ARTICLES_QUERY);
 
-  if (loading) return "Loading...";
+  if (loading) return <ProgressBar />;
   if (error) return `Error! ${error.message}`;
 
   return (
     <Content>
       <Title title="Geedp's Blog" />
       <ContentBody>
-        <p className="pb-6">
+        <header className="pb-6">
           👋 Welcome to my blog! Here you can find posts about computer science,
           tech and software development in general. If you're interested, this
           blog was made with{" "}
@@ -41,8 +42,8 @@ const HomePage = () => {
           >
             Strapi
           </a>{" "}
-          . You can find more information about me in the footer.
-        </p>
+          .
+        </header>
         <Articles articles={data.articles} />
       </ContentBody>
     </Content>

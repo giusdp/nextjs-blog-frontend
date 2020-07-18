@@ -4,13 +4,14 @@ import { useQuery } from "@apollo/react-hooks";
 import Content from "../components/Content";
 import Title from "../components/Title";
 import ContentBody from "../components/ContentBody";
+import ProgressBar from "../components/progressbar/ProgressBar";
 
 const Article = ({ slug }) => {
   const { loading, error, data } = useQuery(ARTICLE_QUERY, {
     variables: { slug: slug },
   });
 
-  if (loading) return <div />;
+  if (loading) return <ProgressBar />;
   if (error) return `Error! ${error.message}`;
   const article = data.articles[0];
 

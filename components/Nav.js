@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import CATEGORIES_QUERY from "../apollo/queries/category/categories";
 import { useQuery } from "@apollo/react-hooks";
+import ProgressBar from "./progressbar/ProgressBar";
 
 const toggleMenu = (bool) => {
   if (bool)
@@ -14,7 +15,7 @@ const Nav = () => {
   const [isMenuOpen, setisMenuOpen] = useState(false);
   const { loading, error, data } = useQuery(CATEGORIES_QUERY);
 
-  if (loading) return <div />;
+  if (loading) return <ProgressBar />;
   if (error) return `Error! ${error.message}`;
 
   return (
