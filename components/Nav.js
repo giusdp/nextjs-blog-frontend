@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import CATEGORIES_QUERY from "../apollo/queries/category/categories";
 import { useQuery } from "@apollo/react-hooks";
 
+const toggleMenu = (bool) => {
+  if (bool)
+    return "w-full flex-grow md:flex md:items-center md:w-auto block md:block mt-2 md:mt-0 bg-gray-100 md:bg-transparent z-20";
+  else
+    return "w-full flex-grow md:flex md:items-center md:w-auto hidden md:block mt-2 md:mt-0 bg-gray-100 md:bg-transparent z-20";
+};
+
 const Nav = () => {
+  const [isMenuOpen, setisMenuOpen] = useState(false);
   const { loading, error, data } = useQuery(CATEGORIES_QUERY);
 
   if (loading) return <div />;
@@ -13,7 +21,7 @@ const Nav = () => {
     <div>
       <nav
         id="header"
-        className="fixed w-full z-10 top-0 shadow-lg bg-gray-100"
+        className="fixed w-full z-10 top-0 shadow-lg bg-gray-100 bg-opacity-75"
       >
         <div className="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
           <div className="pl-4">
@@ -30,6 +38,7 @@ const Nav = () => {
 
           <div className="block md:hidden pr-4">
             <button
+              onClick={() => setisMenuOpen(!isMenuOpen)}
               id="nav-toggle"
               className="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none"
             >
@@ -43,10 +52,7 @@ const Nav = () => {
             </button>
           </div>
 
-          <div
-            className="w-full flex-grow md:flex md:items-center md:w-auto hidden md:block mt-2 md:mt-0 bg-gray-100 md:bg-transparent z-20"
-            id="nav-content"
-          >
+          <div className={toggleMenu(isMenuOpen)} id="nav-content">
             <ul className="list-reset md:flex justify-end flex-1 items-center">
               {data.categories.map((category, i) => {
                 return (

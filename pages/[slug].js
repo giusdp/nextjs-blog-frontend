@@ -13,12 +13,19 @@ const Article = ({ slug }) => {
   if (loading) return <div />;
   if (error) return `Error! ${error.message}`;
   const article = data.articles[0];
+
   return (
     <Content>
-      <Title title={article.title} />
-      <ContentBody>
-        <ReactMarkdown source={article.content} />
-      </ContentBody>
+      {article ? (
+        <>
+          <Title title={article.title} />
+          <ContentBody>
+            <ReactMarkdown source={article.content} />
+          </ContentBody>
+        </>
+      ) : (
+        <ContentBody>Error loading article... 😟</ContentBody>
+      )}
     </Content>
   );
 };
