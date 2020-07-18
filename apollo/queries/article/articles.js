@@ -11,6 +11,7 @@ const ARTICLES_QUERY = gql`
         id
         name
       }
+      published_at
     }
   }
 `;

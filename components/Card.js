@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Moment from "react-moment";
 
 export default function Card({ article }) {
   return (
@@ -13,6 +14,11 @@ export default function Card({ article }) {
         <p className="text-gray-700 text-base">{article.summary}</p>
       </div>
       <div className="flex px-6 py-4">
+        {article.published_at && (
+          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+            <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+          </span>
+        )}
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
           #{article.category ? article.category.name : "NoCategory"}
         </span>

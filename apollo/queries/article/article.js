@@ -10,7 +10,6 @@ const ARTICLE_QUERY = gql`
         id
         name
       }
-      published_at
     }
   }
 `;
