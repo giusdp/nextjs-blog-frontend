@@ -27,7 +27,7 @@ const Footer = () => {
                   <li>
                     <a
                       className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1"
-                      href="mailto:depalma.gsp@gmail.com"
+                      href="mailto:dpl.gsp@tutanota.com"
                     >
                       Send an email
                     </a>
