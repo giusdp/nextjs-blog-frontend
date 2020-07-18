@@ -1,17 +1,29 @@
-FROM node:10
+# Base on offical Node.js Alpine image
+FROM node:alpine
 
-# Setting working directory. All the path will be relative to WORKDIR
-WORKDIR /usr/src/app
+# Set working directory
+WORKDIR /usr/app
 
-# Installing dependencies
-COPY package.json ./
-RUN yarn install
+# Copy package.json and yarn.lock before other files
+# Utilise Docker cache to save re-installing dependencies if unchanged
+COPY ./package.json ./
+COPY ./yarn.lock ./
 
-# Copying source files
-COPY . .
+# Install dependencies
+RUN yarn install --production
 
-# Building app
+# Copy all files
+COPY ./ ./
+
+# Build app
 RUN yarn build
 
-# Running the app
-CMD [ "yarn", "start" ]
+# Expose the listening port
+EXPOSE 3000
+
+# Run container as non-root (unprivileged) user
+# The node user is provided in the Node.js Alpine base image
+USER node
+
+# Run npm start script when container starts
+CMD ["yarn", "start" ]
