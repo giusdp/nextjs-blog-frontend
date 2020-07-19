@@ -9,11 +9,37 @@ const Footer = () => {
           <div className="flex w-full md:w-1/2 ">
             <div className="px-8">
               <h3 className="font-bold text-gray-900">whoami</h3>
-              <p className="py-4 text-gray-600 text-sm">
-                Italian guy who just finished a Master in Computer Science. My
-                main interests are in cloud computing, game and web dev. But
-                let's say software in general.
-              </p>
+              <div className="py-4 text-gray-600 text-sm">
+                <p>
+                  Italian guy who just finished a Master in Computer Science. My
+                  main interests are in cloud computing, game and web dev. But
+                  let's say software in general.{" "}
+                </p>
+                <p>
+                  Blog made with{" "}
+                  <a
+                    className="text-teal-500 no-underline hover:underline"
+                    href="https://nextjs.org/"
+                  >
+                    Nextjs
+                  </a>{" "}
+                  +{" "}
+                  <a
+                    className="text-teal-500 no-underline hover:underline"
+                    href="https://www.tailwindcss.com"
+                  >
+                    Tailwind CSS
+                  </a>{" "}
+                  and{" "}
+                  <a
+                    className="text-teal-500 no-underline hover:underline"
+                    href="https://strapi.io/"
+                  >
+                    Strapi
+                  </a>{" "}
+                  .
+                </p>
+              </div>
             </div>
           </div>
 

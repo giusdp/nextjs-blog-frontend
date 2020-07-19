@@ -19,29 +19,8 @@ const HomePage = () => {
       <ContentBody>
         <header className="pb-6">
           👋 Welcome to my blog! Here you can find posts about computer science,
-          tech and software development in general. If you're interested, this
-          blog was made with{" "}
-          <a
-            className="text-teal-500 no-underline hover:underline"
-            href="https://nextjs.org/"
-          >
-            Nextjs
-          </a>{" "}
-          +{" "}
-          <a
-            className="text-teal-500 no-underline hover:underline"
-            href="https://www.tailwindcss.com"
-          >
-            Tailwind CSS
-          </a>{" "}
-          and{" "}
-          <a
-            className="text-teal-500 no-underline hover:underline"
-            href="https://strapi.io/"
-          >
-            Strapi
-          </a>{" "}
-          .
+          tech and software development in general. Checkout the footer for more
+          info on me.
         </header>
         {error ? (
           <> 😭 There was an error retrieving the posts! 😭</>
