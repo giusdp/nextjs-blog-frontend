@@ -36,7 +36,7 @@ const Footer = () => {
                     href="https://strapi.io/"
                   >
                     Strapi
-                  </a>{" "}
+                  </a>
                   .
                 </p>
               </div>
