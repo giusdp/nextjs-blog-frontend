@@ -29,15 +29,7 @@ const Footer = () => {
                     href="https://www.tailwindcss.com"
                   >
                     Tailwind CSS
-                  </a>{" "}
-                  and{" "}
-                  <a
-                    className="text-teal-500 no-underline hover:underline"
-                    href="https://strapi.io/"
-                  >
-                    Strapi
-                  </a>
-                  .
+                  </a>.
                 </p>
               </div>
             </div>
