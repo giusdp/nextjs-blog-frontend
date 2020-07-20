@@ -6,8 +6,9 @@ import path from "path";
 import matter from "gray-matter";
 import Head from "next/head";
 import marked from "marked";
+import ReactMarkdown from "react-markdown/with-html";
 
-const Article = ({ htmlContent, data }) => {
+const Article = ({ content, data }) => {
   return (
     <>
       <Head>
@@ -19,7 +20,7 @@ const Article = ({ htmlContent, data }) => {
           <>
             <Title title={data.title} />
             <ContentBody>
-              <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+              <ReactMarkdown escapeHtml={false} source={content} />
             </ContentBody>
           </>
         ) : (
@@ -54,10 +55,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
     .toString();
   const parsedMarkdown = matter(markdownWithMetadata);
 
-  const htmlContent = marked(parsedMarkdown.content);
+  const content = marked(parsedMarkdown.content);
   return {
     props: {
-      htmlContent,
+      content,
       data: parsedMarkdown.data,
     },
   };

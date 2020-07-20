@@ -13,3 +13,11 @@ How do they work?!
 
 - test list
 - aooooo
+
+```jsx
+import React from "react";
+
+const CoolComponent = () => <div>I'm a cool component!!</div>;
+
+export default CoolComponent;
+```
