@@ -24,9 +24,9 @@ export default function Card({ article }) {
         </span>
         <div className="flex-1" />
         <Link href={`/blog/[slug]`} as={`/blog/${article.slug}`}>
-          <button className="inline-block bg-transparent hover:bg-teal-500 text-teal-500 rounded-full font-semibold hover:text-white px-4 border border-teal-500 hover:border-transparent">
-            Read
-          </button>
+          <a className="hover:bg-teal-500 text-teal-500 rounded-full font-semibold hover:text-white px-4 border border-teal-500 hover:border-transparent">
+            READ
+          </a>
         </Link>
       </div>
     </div>

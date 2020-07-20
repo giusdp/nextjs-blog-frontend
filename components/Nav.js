@@ -29,7 +29,7 @@ const Nav = () => {
           </Link>
         </div>
 
-        <div className="block md:hidden pr-4">
+        {/* <div className="block md:hidden pr-4">
           <button
             onClick={() => setisMenuOpen(!isMenuOpen)}
             id="nav-toggle"
@@ -46,7 +46,7 @@ const Nav = () => {
         </div>
         <div className={toggleMenu(isMenuOpen)} id="nav-content">
           <ul className="list-reset md:flex justify-end flex-1 items-center"></ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   );

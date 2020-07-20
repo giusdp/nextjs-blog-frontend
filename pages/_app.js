@@ -13,7 +13,9 @@ const App = ({ Component, pageProps }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Nav />
-      <Component {...pageProps} />
+      <div className="px-4 md-px-6">
+        <Component {...pageProps} />
+      </div>
       <Footer />
     </div>
   );

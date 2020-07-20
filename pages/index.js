@@ -15,8 +15,8 @@ const HomePage = ({ articlesData }) => {
       <ContentBody>
         <header className="pb-6">
           👋 Welcome to my blog! Here you can find posts about computer science,
-          tech and software development in general. Checkout the footer for more
-          info on me.
+          tech and software development in general. Check out the footer for
+          more info on me.
         </header>
         <Articles articles={articlesData} />
       </ContentBody>

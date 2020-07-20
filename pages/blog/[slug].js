@@ -22,7 +22,7 @@ const Article = ({ content, data }) => {
       </Head>
       <Content>
         {data ? (
-          <>
+          <div>
             <Title title={data.title} />
             <ContentBody>
               <ReactMarkdown
@@ -31,7 +31,7 @@ const Article = ({ content, data }) => {
                 renderers={{ code: CodeBlock }}
               />
             </ContentBody>
-          </>
+          </div>
         ) : (
           <ContentBody>Error loading article... 😟</ContentBody>
         )}
