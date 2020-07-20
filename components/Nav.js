@@ -11,7 +11,6 @@ const toggleMenu = (bool) => {
 const Nav = () => {
   const [isMenuOpen, setisMenuOpen] = useState(false);
 
-  const categories = ["Reactto"];
   return (
     <nav
       id="header"
@@ -46,25 +45,7 @@ const Nav = () => {
           </button>
         </div>
         <div className={toggleMenu(isMenuOpen)} id="nav-content">
-          <ul className="list-reset md:flex justify-end flex-1 items-center">
-            {categories.map((category, i) => {
-              return (
-                <li key={i} className="mr-3">
-                  <Link
-                    href="/category/[name]"
-                    as={`/category/${category.name}`}
-                  >
-                    <a
-                      className="inline-block py-2 px-4 text-gray-900 font-bold no-underline"
-                      // className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4"
-                    >
-                      {category.name}
-                    </a>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <ul className="list-reset md:flex justify-end flex-1 items-center"></ul>
         </div>
       </div>
     </nav>
