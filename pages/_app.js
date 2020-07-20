@@ -1,15 +1,12 @@
 import React from "react";
 import Head from "next/head";
-import { ApolloProvider } from "@apollo/react-hooks";
-import withData from "../apollo/apollo";
 import Nav from "../components/Nav";
-import "../styles/progress-bar.css";
 import "../styles/fonts.css";
 import Footer from "../components/Footer";
 
-const App = ({ Component, pageProps, apollo }) => {
+const App = ({ Component, pageProps }) => {
   return (
-    <ApolloProvider client={apollo}>
+    <div className="lora">
       <Head>
         <title>Geedp's blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -21,9 +18,9 @@ const App = ({ Component, pageProps, apollo }) => {
       <Nav />
       <Component {...pageProps} />
       <Footer />
-    </ApolloProvider>
+    </div>
   );
 };
 
 // Wraps all components in the tree with the data provider
-export default withData(App);
+export default App;

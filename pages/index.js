@@ -1,18 +1,14 @@
 import React from "react";
 import Articles from "../components/Articles";
-import ARTICLES_QUERY from "../apollo/queries/article/articles";
-import Footer from "../components/Footer";
-import { useQuery } from "@apollo/react-hooks";
 import Title from "../components/Title";
 import Content from "../components/Content";
 import ContentBody from "../components/ContentBody";
-import ProgressBar from "../components/progressbar/ProgressBar";
+import matter from "gray-matter";
+import path from "path";
+import fs from "fs";
+import { mapFilesToSlugPaths } from "./blog/[slug]";
 
-const HomePage = () => {
-  const { loading, error, data } = useQuery(ARTICLES_QUERY);
-
-  if (loading) return <ProgressBar />;
-
+const HomePage = ({ articlesData }) => {
   return (
     <Content>
       <Title title="Geedp's Blog" />
@@ -22,14 +18,31 @@ const HomePage = () => {
           tech and software development in general. Checkout the footer for more
           info on me.
         </header>
-        {error ? (
-          <> 😭 There was an error retrieving the posts! 😭</>
-        ) : (
-          <Articles articles={data.articles} />
-        )}
+        <Articles articles={articlesData} />
       </ContentBody>
     </Content>
   );
+};
+
+export const getStaticProps = async () => {
+  const files = fs.readdirSync("articles");
+  const slugs = mapFilesToSlugPaths(files).map((obj) => obj.params.slug);
+
+  let articlesData = files
+    .map((file) => fs.readFileSync(path.join("articles", file)).toString())
+    .map((markdownWithMetadata) => matter(markdownWithMetadata))
+    .map((parsedMD, i) => parsedMD.data);
+
+  articlesData = articlesData.map((data, i) => {
+    data.slug = slugs[i];
+    return data;
+  });
+
+  return {
+    props: {
+      articlesData,
+    },
+  };
 };
 
 export default HomePage;
