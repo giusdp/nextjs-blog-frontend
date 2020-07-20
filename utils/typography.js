@@ -14,6 +14,8 @@ SutroTheme.overrideThemeStyles = ({ rhythm }, options) => ({
 });
 SutroTheme.scaleRatio = 5 / 2;
 
+const typography = new Typography(SutroTheme);
+
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
   typography.injectStyles();
