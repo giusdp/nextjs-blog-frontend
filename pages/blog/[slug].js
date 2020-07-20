@@ -7,6 +7,11 @@ import matter from "gray-matter";
 import Head from "next/head";
 import marked from "marked";
 import ReactMarkdown from "react-markdown/with-html";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+
+const CodeBlock = ({ language, value }) => {
+  return <SyntaxHighlighter language={language}>{value}</SyntaxHighlighter>;
+};
 
 const Article = ({ content, data }) => {
   return (
@@ -20,7 +25,11 @@ const Article = ({ content, data }) => {
           <>
             <Title title={data.title} />
             <ContentBody>
-              <ReactMarkdown escapeHtml={false} source={content} />
+              <ReactMarkdown
+                escapeHtml={false}
+                source={content}
+                renderers={{ code: CodeBlock }}
+              />
             </ContentBody>
           </>
         ) : (
