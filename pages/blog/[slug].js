@@ -1,13 +1,13 @@
-import Content from "../../components/Content";
-import Title from "../../components/Title";
-import ContentBody from "../../components/ContentBody";
+import ReactMarkdown from "react-markdown/with-html";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+
+import { Content, Title, ContentBody } from "../../components";
+
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Head from "next/head";
 import marked from "marked";
-import ReactMarkdown from "react-markdown/with-html";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 const CodeBlock = ({ language, value }) => {
   return <SyntaxHighlighter language={language}>{value}</SyntaxHighlighter>;
@@ -15,7 +15,7 @@ const CodeBlock = ({ language, value }) => {
 
 const Article = ({ content, data }) => {
   return (
-    <>
+    <article>
       <Head>
         <title>{data.title}</title>
         <meta name="description" content={data.summary}></meta>
@@ -36,12 +36,12 @@ const Article = ({ content, data }) => {
           <ContentBody>Error loading article... 😟</ContentBody>
         )}
       </Content>
-    </>
+    </article>
   );
 };
 
 export const getStaticPaths = async () => {
-  const files = fs.readdirSync("articles");
+  const files = fs.readdirSync("content/articles");
   const paths = mapFilesToSlugPaths(files);
   return {
     paths,
@@ -60,7 +60,7 @@ const removeMDExt = (filename) => filename.replace(".md", "");
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const markdownWithMetadata = fs
-    .readFileSync(path.join("articles", slug + ".md"))
+    .readFileSync(path.join("content/articles", slug + ".md"))
     .toString();
   const parsedMarkdown = matter(markdownWithMetadata);
 

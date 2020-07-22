@@ -1,8 +1,5 @@
 import React from "react";
-import Articles from "../components/Articles";
-import Title from "../components/Title";
-import Content from "../components/Content";
-import ContentBody from "../components/ContentBody";
+import { Articles, Title, Content, ContentBody } from "../components";
 import matter from "gray-matter";
 import path from "path";
 import fs from "fs";
@@ -25,11 +22,13 @@ const HomePage = ({ articlesData }) => {
 };
 
 export const getStaticProps = async () => {
-  const files = fs.readdirSync("articles");
+  const files = fs.readdirSync("content/articles");
   const slugs = mapFilesToSlugPaths(files).map((obj) => obj.params.slug);
 
   let articlesData = files
-    .map((file) => fs.readFileSync(path.join("articles", file)).toString())
+    .map((file) =>
+      fs.readFileSync(path.join("content/articles", file)).toString()
+    )
     .map((markdownWithMetadata) => matter(markdownWithMetadata))
     .map((parsedMD, i) => parsedMD.data);
 
