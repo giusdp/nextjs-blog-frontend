@@ -1,8 +1,9 @@
 ---
 title: "MOG: Development Approaches"
-summary: Some summary for my test article
+summary: "A simple overview on how to approach the development for a multiplayer online game (MOG for short). It's a short introduction on how to start thinking about this field in game dev and the different
+architectures out there."
 category: Game Dev
-published_at: "2020-07-20"
+published_at: "2020-07-22"
 ---
 
 Lately I've been reading a lot about what's behind the "multiplayer" in multiplayer online games, commonly called netcode in gamers lingo.
